@@ -5,7 +5,8 @@ Jeopardy.
 
 ### Setting up
 
-- `yarn` to install dependencies
-- `yarn test` to run the testing suite
-- `yarn lint` to run eslint
-- `yarn format` to run prettier
+- `npm i` to install dependencies
+- `npm start` to start the dev server
+- `npm test` to run the testing suite
+- `npm run lint` to run eslint
+- `npm run format` to run prettier
