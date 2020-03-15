@@ -10,11 +10,18 @@ const App = (): JSX.Element => {
   const [score, setScore] = useState(0);
 
   return (
-    <Container maxWidth="sm">
-      <Player name={name} setName={setName} score={score} setScore={setScore} />
-      {/*<PointSelection />*/}
+    <>
+      <Container maxWidth="sm">
+        <Player
+          name={name}
+          setName={setName}
+          score={score}
+          setScore={setScore}
+        />
+        {/*<PointSelection />*/}
+      </Container>
       <BottomMenu />
-    </Container>
+    </>
   );
 };
 
