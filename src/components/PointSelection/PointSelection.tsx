@@ -1,16 +1,8 @@
 import React, { Dispatch, SetStateAction } from 'react';
 
-// Styles
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-
 // Components
 import PointsPage from '../PointsPage/PointsPage';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {},
-  })
-);
+import PointsPageFinal from '../PointsPageFinal/PointsPageFinal';
 
 interface PointSelectionProps {
   jeopardyVisible: boolean;
@@ -27,8 +19,6 @@ const PointSelection: React.FC<PointSelectionProps> = ({
   score,
   setScore,
 }) => {
-  const classes = useStyles();
-
   return (
     <>
       {/* Jeopardy */}
@@ -44,18 +34,17 @@ const PointSelection: React.FC<PointSelectionProps> = ({
         visible={
           doubleJeopardyVisible && !jeopardyVisible && !finalJeopardyVisible
         }
-        title="Double Jeopardy"
+        title="Double"
         pointValues={[400, 800, 1200, 1600, 2000]}
         score={score}
         setScore={setScore}
       />
       {/* Final Jeopardy */}
-      <PointsPage
+      <PointsPageFinal
         visible={
           finalJeopardyVisible && !jeopardyVisible && !doubleJeopardyVisible
         }
-        title="Final Jeopardy"
-        pointValues={[]}
+        title="Final"
         score={score}
         setScore={setScore}
       />

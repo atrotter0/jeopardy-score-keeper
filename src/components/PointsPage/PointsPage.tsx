@@ -4,7 +4,7 @@ import React, { Dispatch, SetStateAction } from 'react';
 import PointsCard from '../PointsCard/PointsCard';
 import Typography from '@material-ui/core/Typography';
 
-interface PointsPage {
+interface PointsPageProps {
   visible: boolean;
   title: string;
   pointValues: number[];
@@ -12,7 +12,7 @@ interface PointsPage {
   setScore: Dispatch<SetStateAction<number>>;
 }
 
-const PointsPage: React.FC<PointsPage> = ({
+const PointsPage: React.FC<PointsPageProps> = ({
   visible,
   title,
   pointValues,
@@ -24,7 +24,7 @@ const PointsPage: React.FC<PointsPage> = ({
       {visible && (
         <>
           <Typography variant="h5" color="textPrimary" component="p">
-            {title}
+            {title === 'Jeopardy' ? title : `${title} Jeopardy`}
           </Typography>
           {pointValues.map((value: number) => (
             <PointsCard pointValue={value} score={score} setScore={setScore} />
