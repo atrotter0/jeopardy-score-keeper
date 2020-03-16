@@ -25,7 +25,7 @@ const PointSelection: React.FC<PointSelectionProps> = ({
       <PointsPage
         visible={jeopardyVisible}
         title="Jeopardy"
-        pointValues={[100, 200, 400, 800, 1000]}
+        pointValues={[200, 400, 600, 800, 1000]}
         score={score}
         setScore={setScore}
       />
