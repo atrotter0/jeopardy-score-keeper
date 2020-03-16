@@ -3,11 +3,15 @@ import React, { useState } from 'react';
 // Components
 import { Container } from '@material-ui/core';
 import Player from '../Player/Player';
+import PointSelection from '../PointSelection/PointSelection';
 import BottomMenu from '../BottomMenu/BottomMenu';
 
 const App = (): JSX.Element => {
   const [name, setName] = useState('Player');
   const [score, setScore] = useState(0);
+  const [jeopardyVisible, setJeopardyVisibility] = useState(true);
+  const [doubleJeopardyVisible, setDoubleJeopardyVisibility] = useState(false);
+  const [finalJeopardyVisible, setFinalJeopardyVisibility] = useState(false);
 
   return (
     <>
@@ -18,9 +22,19 @@ const App = (): JSX.Element => {
           score={score}
           setScore={setScore}
         />
-        {/*<PointSelection />*/}
+        <PointSelection
+          jeopardyVisible={jeopardyVisible}
+          doubleJeopardyVisible={doubleJeopardyVisible}
+          finalJeopardyVisible={finalJeopardyVisible}
+          score={score}
+          setScore={setScore}
+        />
       </Container>
-      <BottomMenu />
+      <BottomMenu
+        setJeopardyVisible={setJeopardyVisibility}
+        setDoubleJeopardyVisible={setDoubleJeopardyVisibility}
+        setFinalJeopardyVisible={setFinalJeopardyVisibility}
+      />
     </>
   );
 };

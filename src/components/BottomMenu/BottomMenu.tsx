@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 
 // Styles
 import { makeStyles } from '@material-ui/core/styles';
@@ -19,7 +19,17 @@ const useStyles = makeStyles({
   },
 });
 
-const BottomMenu = (): JSX.Element => {
+interface BottomMenuProps {
+  setJeopardyVisible: Dispatch<SetStateAction<boolean>>;
+  setDoubleJeopardyVisible: Dispatch<SetStateAction<boolean>>;
+  setFinalJeopardyVisible: Dispatch<SetStateAction<boolean>>;
+}
+
+const BottomMenu: React.FC<BottomMenuProps> = ({
+  setJeopardyVisible,
+  setDoubleJeopardyVisible,
+  setFinalJeopardyVisible,
+}): JSX.Element => {
   const classes = useStyles();
   const [value, setValue] = useState(0);
 
@@ -33,14 +43,29 @@ const BottomMenu = (): JSX.Element => {
       <BottomNavigationAction
         label="Jeopardy"
         icon={<PresentToAllIcon fontSize="large" />}
+        onClick={() => {
+          setJeopardyVisible(true);
+          setDoubleJeopardyVisible(false);
+          setFinalJeopardyVisible(false);
+        }}
       />
       <BottomNavigationAction
         label="Double Jeopardy"
         icon={<PresentToAllIcon fontSize="large" />}
+        onClick={() => {
+          setDoubleJeopardyVisible(true);
+          setJeopardyVisible(false);
+          setFinalJeopardyVisible(false);
+        }}
       />
       <BottomNavigationAction
         label="Final Jeopardy"
         icon={<PresentToAllIcon fontSize="large" />}
+        onClick={() => {
+          setFinalJeopardyVisible(true);
+          setJeopardyVisible(false);
+          setDoubleJeopardyVisible(false);
+        }}
       />
     </BottomNavigation>
   );
