@@ -2,6 +2,7 @@
   "name": "jeopardy-score-keeper",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://atrotter0.github.io/jeopardy-score-keeper/",
   "dependencies": {
     "@material-ui/core": "^4.9.5",
     "@material-ui/icons": "^4.9.1",

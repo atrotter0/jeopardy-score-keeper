@@ -1,12 +1,24 @@
 import React, { useState } from 'react';
 
+// Styles
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+
 // Components
 import { Container } from '@material-ui/core';
 import Player from '../Player/Player';
 import PointSelection from '../PointSelection/PointSelection';
 import BottomMenu from '../BottomMenu/BottomMenu';
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      height: 650,
+    },
+  })
+);
+
 const App = (): JSX.Element => {
+  const classes = useStyles();
   const [name, setName] = useState('Player');
   const [score, setScore] = useState(0);
   const [jeopardyVisible, setJeopardyVisibility] = useState(true);
@@ -15,7 +27,7 @@ const App = (): JSX.Element => {
 
   return (
     <>
-      <Container maxWidth="sm">
+      <Container maxWidth="sm" className={classes.root}>
         <Player
           name={name}
           setName={setName}
